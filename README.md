@@ -1,6 +1,15 @@
+<div align="center">
+
 # AuditGuard Contexts
 
 Security engagement contexts for AI agents — load the right knowledge base before starting a pentest or audit. Served via MCP through [auditguard-context-mcp](https://github.com/AuditGuard-Community/context-mcp).
+
+[![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+[![PyPI](https://img.shields.io/badge/PyPI-coming%20soon-lightgrey)](https://pypi.org/project/auditguard-context-mcp)
+[![Issues](https://img.shields.io/github/issues/AuditGuard-Community/contexts)](https://github.com/AuditGuard-Community/contexts/issues)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](CONTRIBUTING.md)
+
+</div>
 
 ## Available Contexts
 

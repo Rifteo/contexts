@@ -16,17 +16,24 @@ When the user is starting an engagement or asks what context to load, help them 
 
 ## L2 — Available Contexts
 
-| Context | What it covers | Install |
+| Context | What it covers | Load |
 |---|---|---|
-| `web-app-pentest` | Full web app pentest methodology — recon, auth, injection, business logic | `auditguard-context add web-app-pentest` |
-| `api-security-review` | REST and GraphQL API security — BOLA, auth, rate limiting, data exposure | `auditguard-context add api-security-review` |
-| `cloud-audit` | AWS/Azure/GCP — IAM, storage exposure, networking, logging, secrets | `auditguard-context add cloud-audit` |
-| `mobile-pentest` | Android and iOS — static analysis, traffic interception, storage, auth | `auditguard-context add mobile-pentest` |
+| `web-app-pentest` | Full web app pentest methodology — recon, auth, injection, business logic | `get_context("web-app-pentest")` |
+| `api-security-review` | REST and GraphQL API security — BOLA, auth, rate limiting, data exposure | `get_context("api-security-review")` |
+| `cloud-audit` | AWS/Azure/GCP — IAM, storage exposure, networking, logging, secrets | `get_context("cloud-audit")` |
+| `mobile-pentest` | Android and iOS — static analysis, traffic interception, storage, auth | `get_context("mobile-pentest")` |
 
 ## How to load a context
 
-```bash
-auditguard-context add web-app-pentest
+Ask your agent:
+
+```
+get the web-app-pentest context
+load cloud-audit L2
 ```
 
-Once loaded, the context is available to your agent via the `auditguard-context-mcp` MCP server.
+Or use the MCP tool directly:
+
+```
+get_context("web-app-pentest", level="L2")
+```

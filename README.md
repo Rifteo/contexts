@@ -13,8 +13,23 @@ Security engagement contexts for AI agents — load the right knowledge base bef
 
 ## Quickstart
 
+Install the MCP server:
+
 ```bash
-npx auditguard-context add web-app-pentest
+pip install auditguard-context-mcp
+```
+
+Register with Claude Code:
+
+```bash
+claude mcp add auditguard-contexts -- auditguard-context-mcp
+```
+
+Then ask your agent:
+
+```
+list all available security contexts
+get the web-app-pentest context
 ```
 
 ## Context Structure

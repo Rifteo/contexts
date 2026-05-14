@@ -13,16 +13,26 @@ Security engagement contexts for AI agents — load the right knowledge base bef
 
 ## Quickstart
 
-Install the MCP server:
+Install the MCP server from source:
 
 ```bash
-pip install auditguard-context-mcp
+git clone https://github.com/AuditGuard-Community/context-mcp
+cd context-mcp
+pip install -e .
 ```
 
-Register with Claude Code:
+Register with all detected agents at once:
 
 ```bash
-claude mcp add auditguard-contexts -- auditguard-context-mcp
+auditguard-context install
+```
+
+Or register with a specific agent:
+
+```bash
+auditguard-context install --agent claude-code
+auditguard-context install --agent cursor
+auditguard-context install --agent gemini-cli
 ```
 
 Then ask your agent:
@@ -32,13 +42,15 @@ list all available security contexts
 get the web-app-pentest context
 ```
 
+Supports 10 agents: Claude Code, Cursor, Windsurf, Gemini CLI, Cline, Kiro, Codex, OpenCode, Amp, Continue.
+
 ## Context Structure
 
-Each context uses a 3-tier loading system inspired by [OpenViking](https://github.com/volcengine/OpenViking):
+Each context uses a 3-tier loading system:
 
 ```
 web-app-pentest/
-└── CONTEXT.md   ← contains L0, L1, and L2 sections
+└── CONTEXT.md   <- contains L0, L1, and L2 sections
 ```
 
 | Level | What it contains | When loaded |
@@ -66,12 +78,11 @@ When to use this context and what it covers at a high level.
 Complete detailed content the agent uses during the engagement.
 ```
 
+See [CONTEXT_GUIDE.md](CONTEXT_GUIDE.md) for the full format reference including optional fields.
+
 ## Contributing
 
-1. Fork this repo
-2. Create a folder named after your context
-3. Add a `CONTEXT.md` following the format above
-4. Open a pull request
+See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Part of AuditGuard
 

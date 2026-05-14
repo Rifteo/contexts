@@ -122,6 +122,51 @@ L2 is the full content. Structure it as numbered phases with clear headings.
 - Reference relevant skills where applicable (e.g. "use `finding-writer` skill")
 - End with a reporting phase — every methodology should produce structured output
 
+**Three sections every L2 should include:**
+
+### 1. Concrete payloads
+
+Don't just describe what to test — include actual test strings, commands, and tool invocations. Agents follow examples better than abstract instructions.
+
+```markdown
+### Injection Testing
+
+Test each input with:
+- `' OR '1'='1` — classic SQLi probe
+- `"><img src=x onerror=alert(document.domain)>` — reflected XSS
+- `{{7*7}}` — SSTI detection
+```
+
+### 2. Validation gate
+
+Before every finding is reported, the agent should verify it is real, reproducible, and impactful. Add this as the second-to-last phase in every L2:
+
+```markdown
+### Validation Gate
+
+Before reporting any finding, confirm:
+- [ ] Reproduced in a clean session using attacker-only credentials
+- [ ] Affects other users or the system — not just the tester's own account
+- [ ] Impact is demonstrated, not theoretical
+- [ ] Evidence captured: HTTP request/response, screenshot, or command output
+- [ ] Within the agreed engagement scope
+```
+
+### 3. False positive filter
+
+Include a short list of common false positives and noise specific to this engagement type — findings that look real but don't belong in a report. Applies equally to pentests and audits.
+
+```markdown
+### False Positive Filter
+
+Do not report without further investigation:
+- Self-XSS (payload only executes in your own browser, no impact on others)
+- Missing rate limiting on non-sensitive endpoints
+- Clickjacking on pages with no sensitive actions
+- Informational headers (X-Powered-By, Server version) without a working exploit chain
+- Theoretical vulnerabilities with no demonstrated impact
+```
+
 ---
 
 ## Naming conventions
@@ -163,4 +208,4 @@ l0: Web application penetration testing context — covers recon, authentication
 3. Add a `CONTEXT.md` following this guide
 4. Open a pull request
 
-Once merged, the `find-contexts` index updates automatically and your context is immediately discoverable via `auditguard-context-mcp`.
+Once merged, your context is immediately discoverable via `auditguard-context-mcp`.

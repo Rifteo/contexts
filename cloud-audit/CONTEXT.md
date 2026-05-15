@@ -1,6 +1,6 @@
 ---
 name: cloud-audit
-l0: Cloud security audit context — covers AWS, Azure, and GCP misconfigurations including IAM, storage, networking, and logging.
+l0: AWS, Azure, and GCP security audit — IAM, storage exposure, networking, secrets, and logging misconfigurations.
 ---
 
 ## L1 — Overview

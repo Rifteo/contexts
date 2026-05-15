@@ -1,6 +1,6 @@
 ---
 name: api-security-review
-l0: API security review context — covers REST and GraphQL API testing including authentication, authorization, input validation, and rate limiting.
+l0: REST and GraphQL API security review — authentication, authorization, BOLA, input validation, and rate limiting.
 ---
 
 ## L1 — Overview

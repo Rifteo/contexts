@@ -1,0 +1,32 @@
+name: Feature Request
+description: Suggest an improvement to an existing context
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: input
+    id: context_name
+    attributes:
+      label: Context name
+      placeholder: "e.g. web-app-pentest (leave blank if general)"
+    validations:
+      required: false
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is missing or could be better?
+      description: Describe the gap or improvement you'd like to see.
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: Standards, frameworks, or write-ups that support this.
+    validations:
+      required: false

@@ -1,0 +1,43 @@
+name: Context Issue
+description: Report incorrect, outdated, or broken context content
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please check [existing issues](../issues) before reporting to avoid duplicates.
+  - type: input
+    id: context_name
+    attributes:
+      label: Context name
+      placeholder: "e.g. web-app-pentest"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What is wrong?
+      description: Describe the incorrect, outdated, or missing content.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What should it say or do?
+    validations:
+      required: true
+  - type: input
+    id: agent
+    attributes:
+      label: Agent
+      placeholder: "e.g. Claude Code, Cursor"
+    validations:
+      required: false
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: Links or sources that support the correction.
+    validations:
+      required: false

@@ -1,0 +1,42 @@
+name: New Context Request
+description: Suggest a new security engagement context
+title: "[Context]: "
+labels: ["new-context"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Context name
+      description: Kebab-case folder name.
+      placeholder: "e.g. iot-pentest"
+    validations:
+      required: true
+  - type: input
+    id: l0
+    attributes:
+      label: One-line summary
+      description: Max 120 characters — shown in listings.
+      placeholder: "What this context covers in one sentence."
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope and use case
+      description: What engagement type is this for? When should an agent load it?
+    validations:
+      required: true
+  - type: textarea
+    id: methodology
+    attributes:
+      label: Methodology outline
+      description: Key phases, checks, and techniques. Rough draft is fine — we'll refine it.
+    validations:
+      required: false
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: Standards, frameworks, or write-ups this context should be based on.
+    validations:
+      required: false

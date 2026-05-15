@@ -207,27 +207,31 @@ l0: Ordered workflow for web app pentests — methodology + recommended skills f
 Load this at the start of a web app pentest. It walks through each phase in order
 and recommends skills to activate where available.
 
-**Paired methodology context:** `web-app-pentest`
-
 ---
 
 ## L2 — Full Workflow
 
-### Phase 1 — Methodology
-Load: get_context("web-app-pentest", level="L2")
+### Phase 1 — Reconnaissance
+[Full recon methodology here — enumerate endpoints, map attack surface, identify tech stack]
 
 ### Phase 2 — Authentication testing
-Recommended skill: jwt-cracker
+[Full auth testing methodology here]
+Recommended skill: `jwt-cracker`
 
 ### Phase 3 — Authorization testing
-Recommended skill: idor-hunter
+[Full authz testing methodology here]
+Recommended skill: `idor-hunter`
 
 ### Phase 4 — Injection testing
-Recommended skills: xss-hunter, ssti-hunter
+[Full injection methodology here — XSS, SQLi, SSTI, etc.]
+Recommended skills: `xss-hunter`, `ssti-hunter`
 
 ### Phase 5 — Findings
-Recommended skill: finding-writer
+[Reporting guidance here]
+Recommended skill: `finding-writer`
 ```
+
+The workflow context is self-contained — it includes the full methodology and adds skill recommendations at the relevant phases. The agent loads one context and has everything it needs.
 
 ---
 

@@ -169,6 +169,68 @@ Do not report without further investigation:
 
 ---
 
+## Workflow contexts
+
+A workflow context is a special context type that chains a methodology context with relevant skills for a specific engagement type. It gives the agent an ordered sequence of steps and suggests which skills to use at each phase.
+
+### Key rule — skills are recommendations, never requirements
+
+A workflow context must not create hard dependencies on skills being installed. Always frame skill references as suggestions. The agent follows the workflow whether or not the recommended skills are available.
+
+**Wrong:**
+```markdown
+### Step 3 — Run jwt-cracker skill
+*(required — do not proceed without it)*
+```
+
+**Correct:**
+```markdown
+### Step 3 — Authentication testing
+If the `jwt-cracker` skill is installed, activate it now.
+Otherwise, manually test JWT weaknesses following the steps below.
+```
+
+### Naming
+
+Workflow contexts use the suffix `-workflow`: `web-app-pentest-workflow`, `api-security-review-workflow`.
+
+### Format
+
+```markdown
+---
+name: web-app-pentest-workflow
+l0: Ordered workflow for web app pentests — methodology + recommended skills for each phase.
+---
+
+## L1 — Overview
+
+Load this at the start of a web app pentest. It walks through each phase in order
+and recommends skills to activate where available.
+
+**Paired methodology context:** `web-app-pentest`
+
+---
+
+## L2 — Full Workflow
+
+### Phase 1 — Methodology
+Load: get_context("web-app-pentest", level="L2")
+
+### Phase 2 — Authentication testing
+Recommended skill: jwt-cracker
+
+### Phase 3 — Authorization testing
+Recommended skill: idor-hunter
+
+### Phase 4 — Injection testing
+Recommended skills: xss-hunter, ssti-hunter
+
+### Phase 5 — Findings
+Recommended skill: finding-writer
+```
+
+---
+
 ## Naming conventions
 
 - Folder and `name` field must match exactly: `web-app-pentest/` → `name: web-app-pentest`

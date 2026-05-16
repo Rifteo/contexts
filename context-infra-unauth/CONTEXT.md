@@ -1,6 +1,6 @@
 ---
-name: unauth-infra-ad-pentest
-l0: Unauthenticated infrastructure pentest with AD focus — host discovery, SMB enumeration, null-session attacks, AS-REP roasting, Kerberoasting.
+name: context-infra-unauth
+l0: Unauthenticated infra pentest with AD focus — host discovery, SMB/null-session, AS-REP roasting, Kerberoasting.
 license: MIT
 metadata:
   version: "1.0.0"

@@ -1,6 +1,6 @@
 ---
 name: code-audit
-l0: Source code audit across four dimensions — code quality, architecture, maintainability, and security. Every finding must include evidence.
+l0: Source code audit — quality, architecture, maintainability, and security. Every finding requires evidence.
 license: MIT
 metadata:
   version: "0.0.1"

@@ -19,6 +19,7 @@ Security engagement contexts for AI agents - load the right knowledge base befor
 | `api-security-review` | REST and GraphQL API security — BOLA, auth, rate limiting, data exposure |
 | `cloud-audit` | AWS/Azure/GCP — IAM, storage exposure, networking, logging, secrets |
 | `mobile-pentest` | Android and iOS — static analysis, traffic interception, storage, auth |
+| `code-audit` | Source code security review — secrets, auth logic, injection sinks, crypto, dependencies |
 
 ## Quickstart
 

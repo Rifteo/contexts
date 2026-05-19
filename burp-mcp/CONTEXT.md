@@ -1,6 +1,6 @@
 ---
 name: burp-mcp
-l0: Burp Suite MCP integration — proxy control, HTTP history, active scanning, Intruder, Repeater, and scope management via MCP tools.
+l0: Burp Suite MCP integration — send requests, history analysis, active scanning, Intruder fuzzing, and scope control.
 license: MIT
 metadata:
   version: "1.0.0"

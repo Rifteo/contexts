@@ -425,7 +425,7 @@ Each finding must include:
 - **Title** — short and action-oriented (e.g. "SQL Injection in user search endpoint")
 - **Type** — one of: `Code Quality` / `Code Architecture` / `Code Maintainability` / `Code Security`
 - **Severity** — Critical / High / Medium / Low / Info
-- **CVSS Score** — for `Code Security` findings: calculate using CVSS v4.0; include the vector string (e.g. `CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N`). For quality/arch/maintainability findings, omit CVSS and use the severity label only.
+- **CVSS Score** — for `Code Security` findings: calculate using CVSS v3.1; include the vector string (e.g. `CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H`). For quality/arch/maintainability findings, omit CVSS and use the severity label only.
 - **File and line** — exact location (`src/db/users.py:142`)
 - **Evidence** — the specific lines of code that demonstrate the issue, plus any tool output, grep result, or metric that confirms it. Evidence must be concrete — no theoretical findings without supporting proof.
 - **Steps to trigger** — how the issue is reached or triggered (attacker path for security; reproduction steps for quality/arch/maintainability)
@@ -440,7 +440,7 @@ Each finding must include:
 
 **Type:** Code Security | Code Quality | Code Architecture | Code Maintainability
 **Severity:** Critical | High | Medium | Low | Info
-**CVSS Score:** 9.3 — CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/... (Code Security only)
+**CVSS Score:** 9.8 — CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H (Code Security only)
 **Location:** `path/to/file.py:42`
 
 **Evidence:**

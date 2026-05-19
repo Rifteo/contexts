@@ -3,7 +3,7 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..')
-const SKIP = new Set(['.git', '.github', 'node_modules'])
+const SKIP = new Set(['.git', '.github', 'node_modules', '.claude'])
 const L0_MAX = 120
 
 function parseFrontmatter(content) {

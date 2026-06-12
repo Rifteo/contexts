@@ -1,10 +1,10 @@
----
+﻿---
 name: code-audit
 l0: Source code audit — quality, architecture, maintainability, and security. Every finding requires evidence.
 license: MIT
 metadata:
   version: "0.0.1"
-  author: AuditGuard
+  author: Rifteo
   tags: ["code-review", "sast", "static-analysis", "secure-coding", "architecture", "maintainability", "code-quality"]
 ---
 

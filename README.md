@@ -1,12 +1,12 @@
-<div align="center">
+﻿<div align="center">
 
-# AuditGuard Contexts
+# Rifteo Contexts
 
-Security engagement contexts for AI agents - load the right knowledge base before starting a pentest or audit. Served via MCP through [auditguard-context-mcp](https://github.com/AuditGuard-Community/context-mcp).
+Security engagement contexts for AI agents - load the right knowledge base before starting a pentest or audit. Served via MCP through [rifteo-context-mcp](https://github.com/rifteo/context-mcp).
 
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![PyPI](https://img.shields.io/badge/PyPI-coming%20soon-lightgrey)](https://pypi.org/project/auditguard-context-mcp)
-[![Issues](https://img.shields.io/github/issues/AuditGuard-Community/contexts)](https://github.com/AuditGuard-Community/contexts/issues)
+[![PyPI](https://img.shields.io/badge/PyPI-coming%20soon-lightgrey)](https://pypi.org/project/rifteo-context-mcp)
+[![Issues](https://img.shields.io/github/issues/rifteo/contexts)](https://github.com/rifteo/contexts/issues)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](CONTRIBUTING.md)
 
 </div>
@@ -26,7 +26,7 @@ Security engagement contexts for AI agents - load the right knowledge base befor
 Install the MCP server from source:
 
 ```bash
-git clone https://github.com/AuditGuard-Community/context-mcp
+git clone https://github.com/rifteo/context-mcp
 cd context-mcp
 pip install -e .
 ```
@@ -34,15 +34,15 @@ pip install -e .
 Register with all detected agents at once:
 
 ```bash
-auditguard-context install
+rifteo-context install
 ```
 
 Or register with a specific agent:
 
 ```bash
-auditguard-context install --agent claude-code
-auditguard-context install --agent cursor
-auditguard-context install --agent gemini-cli
+rifteo-context install --agent claude-code
+rifteo-context install --agent cursor
+rifteo-context install --agent gemini-cli
 ```
 
 Then ask your agent:
@@ -94,9 +94,9 @@ See [CONTEXT_GUIDE.md](CONTEXT_GUIDE.md) for the full format reference including
 
 See [CONTRIBUTING.md](CONTRIBUTING.md).
 
-## Part of AuditGuard
+## Part of Rifteo
 
-Part of the [AuditGuard](https://github.com/AuditGuard-Community) open security toolkit.
+Part of the [Rifteo](https://github.com/rifteo) open security toolkit.
 
 ## License
 

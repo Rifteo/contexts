@@ -1,4 +1,4 @@
-﻿# Contributing to Rifteo Contexts
+# Contributing to Rifteo Contexts
 
 Thanks for contributing to the Rifteo open security toolkit.
 

@@ -1,4 +1,4 @@
-﻿# Context Structure Guide
+# Context Structure Guide
 
 A complete reference for creating Rifteo security contexts.
 

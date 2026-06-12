@@ -1,4 +1,4 @@
-﻿---
+---
 name: code-audit
 l0: Source code audit — quality, architecture, maintainability, and security. Every finding requires evidence.
 license: MIT

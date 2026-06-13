@@ -1,6 +1,6 @@
-# Contributing to AuditGuard Contexts
+# Contributing to Rifteo Contexts
 
-Thanks for contributing to the AuditGuard open security toolkit.
+Thanks for contributing to the Rifteo open security toolkit.
 
 ## Adding a new context
 

@@ -1,6 +1,6 @@
 # Context Structure Guide
 
-A complete reference for creating AuditGuard security contexts.
+A complete reference for creating Rifteo security contexts.
 
 ---
 
@@ -8,7 +8,7 @@ A complete reference for creating AuditGuard security contexts.
 
 A context is a security knowledge bundle the agent loads before starting an engagement. It gives the agent domain expertise — methodology, techniques, tools, and reporting guidance — for a specific type of security work.
 
-Contexts are served to agents via the `auditguard-context-mcp` MCP server and retrieved on demand using the `get_context` tool.
+Contexts are served to agents via the `rifteo-context-mcp` MCP server and retrieved on demand using the `get_context` tool.
 
 ---
 
@@ -32,7 +32,7 @@ l0: One sentence describing what this context covers.
 license: MIT
 metadata:
   version: "1.0.0"
-  author: AuditGuard
+  author: Rifteo
   tags: ["pentest", "web", "owasp"]
 ---
 
@@ -274,4 +274,4 @@ l0: Web application penetration testing context — covers recon, authentication
 3. Add a `CONTEXT.md` following this guide
 4. Open a pull request
 
-Once merged, your context is immediately discoverable via `auditguard-context-mcp`.
+Once merged, your context is immediately discoverable via `rifteo-context-mcp`.

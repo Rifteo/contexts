@@ -451,10 +451,12 @@ aws rds describe-db-instances --query \
   'DBInstances[*].[DBInstanceIdentifier,PubliclyAccessible,DBSubnetGroup.VpcId]' \
   --output table
 
-# Check for open Elasticsearch/OpenSearch domains
-aws es list-domain-names --output text | while read domain; do
-  aws es describe-elasticsearch-domain --domain-name "$domain" \
-    --query 'DomainStatus.[DomainName,Endpoint,AccessPolicies]' --output text
+# FIX: aws es is deprecated — use aws opensearch instead
+# List OpenSearch domain names then describe each one
+aws opensearch list-domain-names --output text --query 'DomainNames[*].DomainName' | \
+  tr '\t' '\n' | while read domain; do
+    aws opensearch describe-domain --domain-name "$domain" \
+      --query 'DomainStatus.[DomainName,Endpoint,AccessPolicies]' --output text
 done
 ```
 
@@ -672,8 +674,8 @@ aws s3api get-bucket-lifecycle-configuration --bucket <CLOUDTRAIL_BUCKET>
 #### Azure
 
 ```bash
-# Check Monitor Diagnostic Settings — are activity logs exported?
-az monitor diagnostic-settings list --resource /subscriptions/<SUB_ID> --output table
+# FIX: Use subscription-level diagnostic settings (not resource-level)
+az monitor diagnostic-settings subscription list --output table
 
 # Check if Activity Log retention >= 90 days
 az monitor log-profiles list --output json | python3 -c "
@@ -692,8 +694,11 @@ az security pricing list --output table
 # Check Log Analytics workspace exists
 az monitor log-analytics workspace list --output table
 
-# Check Azure Sentinel (Microsoft Sentinel) deployed
-az sentinel workspace list --output table 2>/dev/null
+# FIX: az sentinel is not a built-in CLI command — check for Microsoft Sentinel via Log Analytics
+# Sentinel is deployed on top of a Log Analytics workspace; verify the workspace exists
+# and confirm Sentinel is enabled via the portal or REST API
+az monitor log-analytics workspace list \
+  --query "[*].[name,resourceGroup,location,provisioningState]" --output table
 
 # Check alerts configured in Defender for Cloud
 az security alert list --output table
@@ -720,8 +725,8 @@ gcloud logging sinks list --format=table
 gcloud scc findings list --organization=<ORG_ID> 2>/dev/null || \
   echo "[SCC] Check manually in Cloud Console"
 
-# Check alert policies
-gcloud alpha monitoring policies list --format=table 2>/dev/null
+# FIX: Use stable monitoring command (no alpha prefix needed)
+gcloud monitoring alert-policies list --format=table 2>/dev/null
 
 # Check log retention (default is 30 days — check for longer retention buckets)
 gcloud logging buckets list --location=global
@@ -1019,7 +1024,26 @@ done
 aws lambda list-functions \
   --query 'Functions[*].[FunctionName,Runtime]' --output table
 
-# Deprecated runtimes to flag: python2.7, python3.6, nodejs10.x, nodejs12.x, ruby2.5, java8 (old)
+# FIX: Expanded deprecated runtime list
+# Deprecated runtimes to flag:
+#   python2.7, python3.6, python3.7
+#   nodejs10.x, nodejs12.x, nodejs14.x
+#   dotnetcore2.1, dotnetcore3.1
+#   ruby2.5, java8 (non-al2 variant)
+aws lambda list-functions --output json | python3 -c "
+import json, sys
+fns = json.load(sys.stdin)['Functions']
+deprecated = {
+    'python2.7', 'python3.6', 'python3.7',
+    'nodejs10.x', 'nodejs12.x', 'nodejs14.x',
+    'dotnetcore2.1', 'dotnetcore3.1',
+    'ruby2.5', 'java8'
+}
+for f in fns:
+    runtime = f.get('Runtime', '')
+    if runtime in deprecated:
+        print(f\"[DEPRECATED RUNTIME] {f['FunctionName']}: {runtime}\")
+"
 
 # Check VPC attachment (is Lambda isolated from internet?)
 aws lambda list-functions --output json | python3 -c "

@@ -1,5 +1,13 @@
 <div align="center">
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset=".github/assets/banner-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset=".github/assets/banner-light.png">
+  <img src=".github/assets/banner-light.png" alt="Rifteo contexts" width="330">
+</picture>
+
+<br>
+
 # Rifteo Contexts
 
 Security engagement contexts for AI agents - load the right knowledge base before starting a pentest or audit. Served via MCP through [rifteo-context-mcp](https://github.com/rifteo/context-mcp).

@@ -13,7 +13,7 @@
 Security engagement contexts for AI agents - load the right knowledge base before starting a pentest or audit. Served via MCP through [rifteo-context-mcp](https://github.com/rifteo/context-mcp).
 
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![PyPI](https://img.shields.io/badge/PyPI-coming%20soon-lightgrey)](https://pypi.org/project/rifteo-context-mcp)
+[![PyPI](https://img.shields.io/pypi/v/rifteo-context-mcp)](https://pypi.org/project/rifteo-context-mcp)
 [![Issues](https://img.shields.io/github/issues/rifteo/contexts)](https://github.com/rifteo/contexts/issues)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](CONTRIBUTING.md)
 

@@ -31,12 +31,10 @@ Security engagement contexts for AI agents - load the right knowledge base befor
 
 ## Quickstart
 
-Install the MCP server from source:
+Install the MCP server:
 
 ```bash
-git clone https://github.com/rifteo/context-mcp
-cd context-mcp
-pip install -e .
+pip install rifteo-context-mcp
 ```
 
 Register with all detected agents at once:

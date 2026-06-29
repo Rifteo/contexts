@@ -23,11 +23,11 @@ Security engagement contexts for AI agents - load the right knowledge base befor
 
 | Context | What it covers |
 |---|---|
-| `web-app-pentest` | Full web app pentest methodology — recon, auth, injection, business logic |
-| `api-security-review` | REST and GraphQL API security — BOLA, auth, rate limiting, data exposure |
-| `cloud-audit` | AWS/Azure/GCP — IAM, storage exposure, networking, logging, secrets |
-| `mobile-pentest` | Android and iOS — static analysis, traffic interception, storage, auth |
-| `code-audit` | Source code security review — secrets, auth logic, injection sinks, crypto, dependencies |
+| `web-app-pentest` | Full web app pentest methodology - recon, auth, injection, business logic |
+| `api-security-review` | REST and GraphQL API security - BOLA, auth, rate limiting, data exposure |
+| `cloud-audit` | AWS/Azure/GCP - IAM, storage exposure, networking, logging, secrets |
+| `mobile-pentest` | Android and iOS - static analysis, traffic interception, storage, auth |
+| `code-audit` | Source code security review - secrets, auth logic, injection sinks, crypto, dependencies |
 
 ## Quickstart
 
@@ -71,7 +71,7 @@ web-app-pentest/
 
 | Level | What it contains | When loaded |
 |---|---|---|
-| `L0` | One-sentence summary | Always — shown in listings |
+| `L0` | One-sentence summary | Always - shown in listings |
 | `L1` | Overview + when to use | Default load |
 | `L2` | Full methodology | On demand |
 
@@ -83,13 +83,13 @@ name: my-context
 l0: One sentence describing what this context covers.
 ---
 
-## L1 — Overview
+## L1 - Overview
 
 When to use this context and what it covers at a high level.
 
 ---
 
-## L2 — Full Methodology
+## L2 - Full Methodology
 
 Complete detailed content the agent uses during the engagement.
 ```
